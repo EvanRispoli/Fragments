@@ -10,6 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/this_is_the_home_fragment"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        />
+
 
 </FrameLayout>
