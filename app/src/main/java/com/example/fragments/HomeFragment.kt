@@ -47,8 +47,6 @@ class HomeFragment : Fragment() {
      * retornar um layout view. As views criadas estao desponiveis para serem referenciadas aqui.
      * */
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -122,7 +120,10 @@ class HomeFragment : Fragment() {
         super.onStop()
         Log.i(TAG, "onStop")
     }
-
+/**
+ * Eh chamado ma fase final de limpeza antes do fragment ser destruida.
+ * ao final o layout e removido
+ * */
     override fun onDestroyView() {
         super.onDestroyView()
         // vinculacao usando binding Passo 03:
