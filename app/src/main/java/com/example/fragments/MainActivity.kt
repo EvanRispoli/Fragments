@@ -2,6 +2,7 @@ package com.example.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.example.fragments.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -10,11 +11,36 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        0003
-//        setContentView(R.layout.activity_main)
-//        0004
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val listFragment = ListFragment.newInstance()
+
+        binding.fabNext.setOnClickListener {
+            replaceFragment(listFragment)
+        }
+
+       /* if (savedInstanceState == null){
+            val mainFragment = HomeFragment.newInstance()
+            val listFragment = ListFragment.newInstance()
+
+            if (binding.fragmentContainerRight != null){
+                val fragmentManager = supportFragmentManager
+                val transaction = fragmentManager.beginTransaction()
+                transaction.replace(R.id.fragment_container_right, listFragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
+            }
+        }*/
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentContainerView, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
